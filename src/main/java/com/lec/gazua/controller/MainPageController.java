@@ -4,12 +4,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/hoin")
+@RequestMapping("/index")
 public class MainPageController {
 	
-	@RequestMapping("/hoin")
+	@RequestMapping("/index")
 	public String main() {
-		return "hoin/hoin";
+		return "index/index";
 	}
+    
+    /**
+     * Tiles를 사용(header, left, footer 포함)
+     */        
+    @RequestMapping("/test")
+    public String testPage() {
+        return "index.page"; // body가 들어갈 jsp파일명과 .page로 처리해줘야함 
+    }
+    
 	
 }

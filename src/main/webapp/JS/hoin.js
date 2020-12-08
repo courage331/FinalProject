@@ -49,3 +49,23 @@
     $(function() {
       setUpbitData();
     });
+    
+	new TradingView.MediumWidget({
+		"symbols" : [ [ "BTC(비트코인)", "BITHUMB:BTCKRW|12M" ],
+				[ "ETHKRW(이더리움)", "KORBIT:ETHKRW|12M" ] ,
+				[ "BCH(비트코인캐쉬)", "BITHUMB:BCHKRW|12M" ],
+				[ "BSV(비트코인에스브이)", "BITHUMB:BSVKRW|12M" ],
+				[ "LTC(라이트코인)", "BITHUMB:LTCKRW|12M" ] ],
+		"chartOnly" : false,
+		"width" : 1000,
+		"height" : 400,
+		"locale" : "kr",
+		"colorTheme" : "light",
+		"gridLineColor" : "#F0F3FA",
+		"trendLineColor" : "#2196F3",
+		"fontColor" : "#787B86",
+		"underLineColor" : "#E3F2FD",
+		"isTransparent" : false,
+		"autosize" : false,
+		"container_id" : "tradingview_986e3"
+	});

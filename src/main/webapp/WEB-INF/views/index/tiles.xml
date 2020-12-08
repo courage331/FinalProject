@@ -1,0 +1,52 @@
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- (1) 레이아웃을 적용하지않는화면 -->
+	<definition name="baseEmpty"
+		template="/WEB-INF/views/index/test.jsp">
+	</definition>
+
+	<!-- (1) 레이아웃 미적용 -->
+	<definition name="*.part" extends="baseEmpty">
+		<put-attribute name="body"
+			value="/WEB-INF/views/login/{1}.jsp" />
+	</definition>
+
+	<definition name="*/*.part" extends="baseEmpty">
+		<put-attribute name="body"
+			value="/WEB-INF/views/login/{1}/{2}.jsp" />
+	</definition>
+
+	<definition name="*/*/*.part" extends="baseEmpty">
+		<put-attribute name="body"
+			value="/WEB-INF/views/login/{1}/{2}/{3}.jsp" />
+	</definition>
+
+
+	<!-- (2) 레이아웃을 적용하는화면 -->
+	<definition name="base" template="/WEB-INF/views/index/test.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/views/index/header.jsp" /> <!-- 사용할 헤더 -->
+        <put-attribute name="footer" value="/WEB-INF/views/index/footer.jsp" /> <!-- 사용할 푸터 -->
+    </definition>
+
+
+	<!-- (2) 레이아웃 적용 -->
+	<!-- 컨트롤러쪽만 손봐주시면 될거같습니다. -->
+	<definition name="*.page" extends="base">
+		<put-attribute name="body"
+			value="/WEB-INF/views/index/{1}.jsp" />
+	</definition>
+	<definition name="*/*.page" extends="base">
+		<put-attribute name="body"
+			value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>
+	<definition name="*/*/*.page" extends="base">
+		<put-attribute name="body"
+			value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
+	</definition>
+
+</tiles-definitions>
