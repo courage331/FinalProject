@@ -41,7 +41,7 @@
 		<suspend_validator>false</suspend_validator>
 		<export_setting>
 			<export_ddl_setting>
-				<output_path>ERD\jimin.sql</output_path>
+				<output_path>ERD\gazua.sql</output_path>
 				<encoding>UTF-8</encoding>
 				<line_feed>CR+LF</line_feed>
 				<is_open_after_saved>true</is_open_after_saved>
@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2020-12-04 19:25:02</creation_date>
-			<updated_date>2020-12-07 16:06:01</updated_date>
+			<updated_date>2020-12-09 15:55:12</updated_date>
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>

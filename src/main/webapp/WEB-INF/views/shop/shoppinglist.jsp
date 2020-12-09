@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="write">write</a>
-	<a href="view">view</a>
+	<h1>shop</h1>
 </body>
 </html>
 
