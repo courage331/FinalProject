@@ -6,7 +6,7 @@
 
 	<!-- (1) 레이아웃을 적용하지않는화면 -->
 	<definition name="baseEmpty"
-		template="/WEB-INF/views/index/test.jsp">
+		template="/WEB-INF/views/index/index.jsp">
 	</definition>
 
 	<!-- (1) 레이아웃 미적용 -->
@@ -27,7 +27,7 @@
 
 
 	<!-- (2) 레이아웃을 적용하는화면 -->
-	<definition name="base" template="/WEB-INF/views/index/test.jsp">
+	<definition name="base" template="/WEB-INF/views/index/index.jsp">
         <put-attribute name="title" value="" />
         <put-attribute name="header" value="/WEB-INF/views/index/header.jsp" /> <!-- 사용할 헤더 -->
         <put-attribute name="footer" value="/WEB-INF/views/index/footer.jsp" /> <!-- 사용할 푸터 -->

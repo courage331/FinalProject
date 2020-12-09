@@ -17,7 +17,7 @@
 //          arr_korean_name.push(markets[i].korean_name.replace("코인",""));
           }
         }
-//        alert(arr_korean_name);
+//        alert(arr_korean_name); 코인 한글명
         arr_krw_markets = arr_krw_markets.substring(0, arr_krw_markets.length-1);
         //$("#tmp").html( arr_krw_markets );
         $.ajax({
@@ -35,6 +35,9 @@
             rowHtml += "<td>" + comma((     tickers[i].acc_trade_price_24h>1000000 ? ( tickers[i].acc_trade_price_24h / 1000000 ) : tickers[i].acc_trade_price_24h ).toFixed(0)) + (tickers[i].acc_trade_price_24h>1000000 ? "백만" : "") + "</td>"
             rowHtml += "</tr>";
             $("#table_ticker > tbody:last").append(rowHtml);
+            
+            let stockMenu = "<li><a href='#'>" + arr_korean_name[i] + "</a></li>"
+            $("#nav1 > ul").append(stockMenu);
             //markets[i].korean_name
           } // end for...
           $("#table_ticker").fadeIn("slow");
@@ -50,22 +53,3 @@
       setUpbitData();
     });
     
-	new TradingView.MediumWidget({
-		"symbols" : [ [ "BTC(비트코인)", "BITHUMB:BTCKRW|12M" ],
-				[ "ETHKRW(이더리움)", "KORBIT:ETHKRW|12M" ] ,
-				[ "BCH(비트코인캐쉬)", "BITHUMB:BCHKRW|12M" ],
-				[ "BSV(비트코인에스브이)", "BITHUMB:BSVKRW|12M" ],
-				[ "LTC(라이트코인)", "BITHUMB:LTCKRW|12M" ] ],
-		"chartOnly" : false,
-		"width" : 1000,
-		"height" : 400,
-		"locale" : "kr",
-		"colorTheme" : "light",
-		"gridLineColor" : "#F0F3FA",
-		"trendLineColor" : "#2196F3",
-		"fontColor" : "#787B86",
-		"underLineColor" : "#E3F2FD",
-		"isTransparent" : false,
-		"autosize" : false,
-		"container_id" : "tradingview_986e3"
-	});
