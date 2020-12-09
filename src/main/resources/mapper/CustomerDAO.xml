@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lec.gazua.domain.CustomerDAO">
+	<select id="selectByUid" resultType="com.lec.gazua.domain.CustomerDTO">
+		SELECT
+			CUS_UID "uid",
+			CUS_ID id,
+			CUS_PW pw,
+			CUS_NICKNAME nickname,
+			CUS_NAME name,
+			CUS_GENDER gender,
+			CUS_BIRTH birth,
+			CUS_MONEY money,
+			CUS_STACK stack,
+			CUS_ICON icon
+		FROM
+			CUSTOMER
+		WHERE
+			CUS_UID = #{uid};
+	</select>
+</mapper>
+

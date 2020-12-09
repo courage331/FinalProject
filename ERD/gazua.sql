@@ -13,8 +13,6 @@ DROP TABLE product CASCADE CONSTRAINTS;
 DROP TABLE stocks CASCADE CONSTRAINTS;
 
 
-
-
 /* Create Tables */
 
 CREATE TABLE cmt
@@ -221,9 +219,15 @@ INSERT INTO CUSTOMER
 	VALUES	(CUSTOMER_SEQ.nextval, 'jjh', '1234', '닉넴', '장정호' ,'남', '1994-01-03', 10, 1, 5);
 
 INSERT INTO PORUM 
-	VALUES ()
+	VALUES (PORUM_SEQ.nextval, sysdate, '제목', '내용', '닉넴' , 1, 10, 0, 0, 1, 1);
 	
-	
+SELECT 
+	CUS_UID "uid", CUS_ID id, CUS_PW pw, CUS_NICKNAME nickname, CUS_NAME name, CUS_GENDER gender, CUS_BIRTH birth, CUS_MONEY money, CUS_STACK stack, CUS_ICON icon
+FROM 
+	CUSTOMER
+WHERE
+	CUS_UID = 1;
+
 SELECT * FROM CUSTOMER;
 SELECT * FROM PORUM;
 
