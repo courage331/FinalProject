@@ -37,7 +37,7 @@ CREATE TABLE customer
 	cus_id varchar2(20) NOT NULL UNIQUE,
 	cus_pw varchar2(20) NOT NULL,
 	cus_nickname varchar2(20) NOT NULL UNIQUE,
-	cus_name urowid(20) NOT NULL,
+	cus_name varchar2(20) NOT NULL,
 	cus_gender varchar2(10) NOT NULL,
 	cus_birth varchar2(20) NOT NULL,
 	cus_money number NOT NULL,
@@ -72,7 +72,7 @@ CREATE TABLE porum
 	por_regdate date NOT NULL,
 	por_subject varchar2(20) NOT NULL,
 	por_content clob,
-	por_nickname urowid(30) NOT NULL,
+	por_nickname varchar2(20) NOT NULL,
 	por_viewcnt number NOT NULL,
 	por_up number NOT NULL,
 	por_down number NOT NULL,
@@ -86,7 +86,7 @@ CREATE TABLE porum
 CREATE TABLE product
 (
 	pro_uid number NOT NULL,
-	pro_name urowid(30) NOT NULL,
+	pro_name varchar2(30) NOT NULL,
 	pro_subject varchar2(20) NOT NULL,
 	pro_cnt number NOT NULL,
 	pro_price number NOT NULL,
@@ -208,4 +208,22 @@ ALTER TABLE porum
 ;
 
 
+/* Create Sequence*/
+CREATE SEQUENCE CUSTOMER_SEQ;
+CREATE SEQUENCE PORUM_SEQ;
+/* Drop Sequence*/
+
+DROP SEQUENCE CUSTOMER_SEQ;
+DROP SEQUENCE PORUM_SEQ;
+
+/* 테스트용 */
+INSERT INTO CUSTOMER 
+	VALUES	(CUSTOMER_SEQ.nextval, 'jjh', '1234', '닉넴', '장정호' ,'남', '1994-01-03', 10, 1, 5);
+
+INSERT INTO PORUM 
+	VALUES ()
+	
+	
+SELECT * FROM CUSTOMER;
+SELECT * FROM PORUM;
 
