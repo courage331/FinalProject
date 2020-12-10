@@ -199,6 +199,15 @@
 		</dependency>
 		<!-- Tiles Framework 관련 -->
 
+		<!-- File 업로드 관련 -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
+		<!-- File 업로드 관련 -->
+
 	</dependencies>
 	<build>
 		<plugins>

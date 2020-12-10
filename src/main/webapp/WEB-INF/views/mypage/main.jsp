@@ -64,21 +64,21 @@
 			</div>
 		</div>
 		<div class="tab-pane fade" id="asd">
-		<c:choose>
-			<c:when test="${ empty list || fn:length(list) == 0}">
-			<%-- 리스트가 비어 있거나 없으면 --%>
-			</c:when>
-			<c:otherwise>
-				<c:forEach var="dto" items="${list }">
-				<tr>
-					<td>${dto.uid }</td>
-					<td>${dto.name }</td>
-					<td>${dto.viewCnt }</td>
-					<td>${dto.regDate }</td>
-				</tr>
-				</c:forEach>
-			</c:otherwise>
-		</c:choose>			
+			<c:choose>
+				<c:when test="${ empty list || fn:length(list) == 0}">
+					<%-- 리스트가 비어 있거나 없으면 --%>
+				</c:when>
+				<c:otherwise>
+					<c:forEach var="dto" items="${list }">
+						<tr>
+							<td>${dto.uid }</td>
+							<td>${dto.name }</td>
+							<td>${dto.viewCnt }</td>
+							<td>${dto.regDate }</td>
+						</tr>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
 		</div>
 		<div class="tab-pane fade" id="zxc">
 			<p>Curabitur dignissim quis nunc vitae laoreet. Etiam ut mattis
@@ -91,7 +91,6 @@
 
 	<!-- 실시간 채팅 관련 -->
 	<!-- TODO -->
-
 
 
 
