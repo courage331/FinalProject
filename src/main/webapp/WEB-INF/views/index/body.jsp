@@ -49,7 +49,7 @@
 		</div>
 		<br> <br> <br>
 		<div class="col-sm-9">
-			<table id="table_ticker" class="table table-hover text-center">
+			<table id="table_ticker" class="text-center">
 				<thead>
 					<tr>
 						<td>NO</td>
@@ -62,9 +62,19 @@
 				<tbody>
 				</tbody>
 			</table>
+			<div class="col-sm-12">
+				<button id="plus1" value="1" style="width:100%">종목 더보기</button>
+				<button id="plus2" value="2" style="width:100%; display:none;">접기</button>
+			</div>
 		</div>
-
+		<br>
+		<br>
+		<div class="col-sm-9">
+			<div class="col-sm-6">게시판1</div>
+			<div class="col-sm-6">게시판2</div>
+		</div>
+		<br>
 	</div>
+	<br>
 	<!-- TradingView Widget END -->
 
-	<div id='tmp2'></div>

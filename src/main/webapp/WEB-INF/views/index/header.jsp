@@ -7,12 +7,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
 <header>
 <hr>
 <div class="container">
-  <h2>Header</h2>
+  <h2><img src="https://img.icons8.com/color/48/000000/illuminati-symbol.png"/>Header</h2>
   <ul class="nav justify-content-end bg-dark">
-    <li class="nav-item">
+  	<li class="nav-item">
+  		<a class="nav-link text-warning" href="#"><i class="fas fa-home"></i></a>
+    </li>
+  	<li class="nav-item">
       <a class="nav-link dropdown text-warning" data-toggle="dropdown" href="#">TOP코인</a>
       <div class="dropdown-menu">
         <a class="dropdown-item" href="#">비트코인</a>
