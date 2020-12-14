@@ -49,7 +49,7 @@ CREATE TABLE customer
 
 CREATE TABLE game
 (
-	game_uid number NOT NULL,
+	game_uid number NOT NULL,''
 	game_name varchar2(40) NOT NULL,
 	PRIMARY KEY (game_uid)
 );
@@ -70,14 +70,15 @@ CREATE TABLE porum
 (
 	por_uid number NOT NULL,
 	por_regdate date NOT NULL,
-	por_subject varchar2(20) NOT NULL,
+	por_subject varchar2(40) NOT NULL,
 	por_content clob,
-	por_nickname varchar2(30) NOT NULL,
+	/*por_nickname varchar2(30) NOT NULL,*/
 	por_viewcnt number NOT NULL,
 	por_up number NOT NULL,
 	por_down number NOT NULL,
 	por_report number NOT NULL,
 	cus_uid number NOT NULL,
+	cus_nickname varchar2(20) NOT NULL,
 	stock_uid number NOT NULL,
 	PRIMARY KEY (por_uid)
 );
@@ -159,6 +160,11 @@ ALTER TABLE porum
 	REFERENCES customer (cus_uid)
 ;
 
+ALTER TABLE porum
+	ADD FOREIGN KEY (cus_nickname)
+	REFERENCES customer (cus_nickname)
+;
+
 
 ALTER TABLE report
 	ADD FOREIGN KEY (cus_uid)
@@ -211,21 +217,46 @@ ALTER TABLE porum
 CREATE SEQUENCE CUSTOMER_SEQ;
 CREATE SEQUENCE PORUM_SEQ;
 CREATE SEQUENCE PRODUCT_SEQ;
+CREATE SEQUENCE STOCKS_SEQ;
+CREATE SEQUENCE STOCKS_SEQ_CO increment by 1 start with 100;  -- 시작값 100
 /* Drop Sequence*/
 
 DROP SEQUENCE CUSTOMER_SEQ;
 DROP SEQUENCE PORUM_SEQ;
 DROP SEQUENCE PRODUCT_SEQ;
+DROP SEQUENCE STOCKS_SEQ;
+DROP SEQUENCE STOCKS_SEQ_CO;
 
 /* 테스트용 */
 INSERT INTO CUSTOMER 
 	VALUES	(CUSTOMER_SEQ.nextval, 'jjh', '1234', '닉넴', '장정호' ,'남', '1994-01-03', 10, 1, 5);
 
 INSERT INTO PORUM 
-	VALUES (PORUM_SEQ.nextval, sysdate, '제목', '내용', '닉넴' , 1, 10, 0, 0, 1, 1);
+	VALUES (PORUM_SEQ.nextval, sysdate, '공지사항', '공지사항입니다', 1, 10, 0, 0, 1, '닉넴', 1); /*맨 뒤의 숫자가 stock uid */
+																				/* 1~99 가 게시판 100부터는 코인*/
+INSERT INTO PORUM 
+	VALUES (PORUM_SEQ.nextval, sysdate, '수익게시판 테스트', '수익테스트중',  1, 10, 0, 0, 1, '닉넴', 2);
+INSERT INTO PORUM 
+	VALUES (PORUM_SEQ.nextval, sysdate, '수익 테스트', '익절중', 1, 10, 0, 0, 1, '닉넴', 2);
+
+INSERT INTO PORUM 
+	VALUES (PORUM_SEQ.nextval, sysdate, '자유게시판 테스트', '자유테스트중',  1, 10, 0, 0, 1, '닉넴', 3);
 	
 INSERT INTO PRODUCT 
 	VALUES (PRODUCT_SEQ.nextval,'흑우',10, 1, 100,'<p><img alt="" src="/SemiProject/chkupload/r1.jpg" style="width: 220px; height: 220px;" /></p>');
+
+
+INSERT INTO STOCKS 
+	VALUES (STOCKS_SEQ.nextval, '공지사항');
+INSERT INTO STOCKS 
+	VALUES (STOCKS_SEQ.nextval, '수익게시판');
+INSERT INTO STOCKS 
+	VALUES (STOCKS_SEQ.nextval, '자유게시판');
+
+/**/
+INSERT INTO STOCKS 
+	VALUES (STOCKS_SEQ_CO.nextval, '비트코인');
+/**/
 
 /* CUSTOMER 조회 */
 SELECT 
@@ -235,7 +266,17 @@ FROM
 WHERE
 	CUS_UID = 1;
 
+/* PORUM 조회*/
+SELECT POR_UID "uid", POR_REGDATE, POR_SUBJECT, CUS_NICKNAME FROM PORUM WHERE STOCK_UID = 2;
+	
+
 
 SELECT * FROM CUSTOMER;
 SELECT * FROM PORUM;
+SELECT * FROM STOCKS;
+
+ /* 현재 시퀀스값 확인 */
+SELECT CUSTOMER_SEQ.CURRVAL FROM DUAL;
+SELECT STOCKS_SEQ.CURRVAL FROM DUAL;
+SELECT STOCKS_SEQ_CO.CURRVAL FROM DUAL;
 
