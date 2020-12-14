@@ -45,29 +45,11 @@
 				<div class="text-center bg-dark">
 					<a href="#" class="col-sm-12 p-5 bg-dark text-warning">로그인</a>
 				</div>
+				
+				<div>공지사항</div>
 			</div>
 		</div>
 		<br> <br> <br>
-		<div class="col-sm-9">
-			<table id="table_ticker" class="text-center">
-				<thead>
-					<tr>
-						<td>NO</td>
-						<td>한글명</td>
-						<td>현재가</td>
-						<td>전일대비</td>
-						<td>거래대금</td>
-					</tr>
-				</thead>
-				<tbody>
-				</tbody>
-			</table>
-			<div class="col-sm-12">
-				<button id="plus1" value="1" style="width:100%">종목 더보기</button>
-				<button id="plus2" value="2" style="width:100%; display:none;">접기</button>
-			</div>
-		</div>
-		<br>
 		<br>
 		<div class="col-sm-9">
 			<div class="col-sm-6">게시판1</div>

@@ -1,8 +1,9 @@
-function comma(str) {
+/*function comma(str) {
     str = String(str);
     return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
 }
-
+*/
+/*
 function setUpbitData(){
   $.ajax({
     url: "https://api.upbit.com/v1/market/all",
@@ -53,15 +54,15 @@ function setUpbitData(){
   })
   setTimeout(setUpbitData, 10000); // 10초마다 out
 }
+*/
 
-
-
+/*
 $(function() {
 	setUpbitData();
 });
+*/
 
-
-$( document ).ready( function() {
+/*$( document ).ready( function() {
 	$( '#plus1' ).click( function() {
 		$("#plus1").css("display", "none" );
 		$("#plus2").css("display", "block" );
@@ -76,5 +77,5 @@ $( document ).ready( function() {
 		$("#plus1").val('1');
 		setUpbitData();
 	} );
-} );
+} );*/
 

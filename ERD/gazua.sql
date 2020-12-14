@@ -13,6 +13,8 @@ DROP TABLE product CASCADE CONSTRAINTS;
 DROP TABLE stocks CASCADE CONSTRAINTS;
 
 
+
+
 /* Create Tables */
 
 CREATE TABLE cmt
@@ -70,7 +72,7 @@ CREATE TABLE porum
 	por_regdate date NOT NULL,
 	por_subject varchar2(20) NOT NULL,
 	por_content clob,
-	por_nickname varchar2(20) NOT NULL,
+	por_nickname varchar2(30) NOT NULL,
 	por_viewcnt number NOT NULL,
 	por_up number NOT NULL,
 	por_down number NOT NULL,
@@ -84,7 +86,7 @@ CREATE TABLE porum
 CREATE TABLE product
 (
 	pro_uid number NOT NULL,
-	pro_name varchar2(30) NOT NULL,
+	pro_name urowid(30) NOT NULL,
 	pro_subject varchar2(20) NOT NULL,
 	pro_cnt number NOT NULL,
 	pro_price number NOT NULL,
@@ -206,46 +208,4 @@ ALTER TABLE porum
 ;
 
 
-/* Create Sequence*/
-CREATE SEQUENCE CUSTOMER_SEQ;
-CREATE SEQUENCE PORUM_SEQ;
-CREATE SEQUENCE PRODUCT_SEQ;
-/* Drop Sequence*/
-
-DROP SEQUENCE CUSTOMER_SEQ;
-DROP SEQUENCE PORUM_SEQ;
-DROP SEQUENCE PRODUCT_SEQ;
-
-/* 테스트용 */
-INSERT INTO CUSTOMER 
-	VALUES	(CUSTOMER_SEQ.nextval, 'jjh', '1234', '닉넴', '장정호' ,'남', '1994-01-03', 10, 1, 5);
-
-INSERT INTO PORUM 
-	VALUES (PORUM_SEQ.nextval, sysdate, '제목', '내용', '닉넴' , 1, 10, 0, 0, 1, 1);
-	
-INSERT INTO PRODUCT 
-	VALUES (PRODUCT_SEQ.nextval,'흑우',10, 1, 100,'<p><img alt="" src="/SemiProject/chkupload/r1.jpg" style="width: 220px; height: 220px;" /></p>');
-
-/* CUSTOMER 조회 */
-SELECT 
-	CUS_UID "uid", CUS_ID id, CUS_PW pw, CUS_NICKNAME nickname, CUS_NAME name, CUS_GENDER gender, CUS_BIRTH birth, CUS_MONEY money, CUS_STACK stack, CUS_ICON icon
-FROM 
-	CUSTOMER
-WHERE
-	CUS_UID = 1;
-
-CREATE TABLE product
-(
-	pro_uid number NOT NULL,
-	pro_name varchar2(30) NOT NULL,
-	pro_subject varchar2(20) NOT NULL,
-	pro_cnt number NOT NULL,
-	pro_price number NOT NULL,
-	pro_image clob NOT NULL,
-	PRIMARY KEY (pro_uid)
-);
-
-
-SELECT * FROM CUSTOMER;
-SELECT * FROM PORUM;
 
