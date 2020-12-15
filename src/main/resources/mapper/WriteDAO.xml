@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lec.gazua.domain.WriteDAO">
+	<select id="select" resultType="com.lec.gazua.domain.WriteDTO">
+		SELECT 
+			por_uid "por_uid", 
+			por_subject subject,
+			por_content content, 
+			por_viewcnt viewcnt,
+			por_up por_up,
+			por_down por_down,
+			por_report por_report,
+			por_regdate regdate 
+		FROM 
+			PORUM 
+		ORDER BY 
+			por_uid DESC	
+	</select>
+	
+	<!-- view.do -->
+	<select id="selectByUid" resultType="com.lec.gazua.domain.WriteDTO">
+		SELECT 
+			por_uid "por_uid", por_subject subject, por_content content, 
+			por_viewcnt viewcnt, por_regdate regDate 
+		FROM PORUM 
+		WHERE por_uid=#{por_uid}
+	</select>
+	
+	<!-- 조회수 증가 -->
+	<update id="incViewCnt" flushCache="true">
+		UPDATE PORUM 
+		SET por_viewcnt = por_viewcnt + 1 
+		WHERE por_uid = #{param1}
+	</update>
+
+	<!-- 
+	<update id="update" flushCache="true" 
+		parameterType="com.lec.sts15_mybatis.domain.WriteDTO">
+		UPDATE test_write 
+		SET por_subject = #{subject}, por_content = #{content} 
+		WHERE por_uid = #{uid}
+	</update>
+	 -->
+	 
+	<update id="update" flushCache="true">
+		UPDATE test_write 
+		SET por_subject = #{a.subject}, por_content = #{a.content} 
+		WHERE por_uid = #{param1}
+	</update>
+	
+	<delete id="deleteByUid" flushCache="true">
+		DELETE FROM test_write WHERE por_uid = #{por_uid}
+	</delete>
+	
+	<!-- 
+	<select id="searchBySubject" resultType=""></select>
+	 -->
+</mapper>
