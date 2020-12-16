@@ -11,6 +11,13 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.css" />
+<style>
+table {width: 100%;}
+table, th, td {
+	border : 1px solid black;
+	border-collapse: collapse;
+}
+</style>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath }/JS/hoin.js"></script>
@@ -52,8 +59,32 @@
 		<br> <br> <br>
 		<br>
 		<div class="col-sm-9">
-			<div class="col-sm-6">게시판1</div>
-			<div class="col-sm-6">게시판2</div>
+			<div class="col-sm-6">
+				<div class="col-sm-8">수익게시판</div><a class="col-sm-4" href="#" style="text-align: right">더보기+</a>
+				<br>
+				<div  class="col-sm-12 p-4" >
+				<table>
+					<tbody>
+						<tr>
+							<td class="col-sm-10">테스트 제목입니다.<img src="https://coinpan.com/modules/document/tpl/icons/default/new.gif" style="margin-right:2px;"></td>
+							<td class="col-sm-2">2020.12.11</td>
+						</tr>
+						<tr>
+							<td class="col-sm-10">ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ<img src="https://coinpan.com/modules/document/tpl/icons/default/new.gif" style="margin-right:2px;"></td>
+							<td class="col-sm-2">2020.12.11</td>
+						</tr>
+						<tr>
+							<td class="col-sm-10">테스트 제목입니다.222222222222<img src="https://coinpan.com/modules/document/tpl/icons/default/new.gif" style="margin-right:2px;"></td>
+							<td class="col-sm-2">2020.12.11</td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+			</div>
+			
+			<div class="col-sm-6">
+				<div class="col-sm-8">자유게시판</div><a class="col-sm-4" href="#" style="text-align: right">더보기+</a>
+			</div>	
 		</div>
 		<br>
 	</div>
